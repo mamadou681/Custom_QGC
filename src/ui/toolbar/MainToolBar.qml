@@ -63,9 +63,12 @@ Rectangle {
         anchors.top:            parent.top
         anchors.bottom:         parent.bottom
         spacing:                ScreenTools.defaultFontPixelWidth / 2
+        // by me
+        anchors.fill: parent
 
         QGCToolBarButton {
             id:                     currentButton
+            Layout.alignment: Qt.AlignRight
             Layout.preferredHeight: viewButtonRow.height
             icon.source:            "/res/QGCLogoFull"
             logo:                   true
@@ -73,7 +76,8 @@ Rectangle {
         }
 
         MainStatusIndicator {
-            Layout.preferredHeight: viewButtonRow.height
+//            Layout.preferredHeight: viewButtonRow.height
+            Layout.alignment: Qt.AlignRight
             visible:                currentToolbar === flyViewToolbar
         }
 

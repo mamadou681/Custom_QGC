@@ -75,6 +75,7 @@ Item {
         id:                 multiVehiclePanelSelector
         anchors.margins:    _toolsMargin
         anchors.top:        parent.top
+
         anchors.right:      parent.right
         width:              _rightPanelWidth
         spacing:            ScreenTools.defaultFontPixelWidth
@@ -248,7 +249,11 @@ Item {
         anchors.leftMargin:     _toolsMargin + parentToolInsets.leftEdgeCenterInset
         anchors.topMargin:      _toolsMargin + parentToolInsets.topEdgeLeftInset
         anchors.left:           parent.left
-        anchors.top:            parent.top
+//        anchors.top:            parent.top
+        y: parent.height / 3
+
+
+
         z:                      QGroundControl.zOrderWidgets
         maxHeight:              parent.height - y - parentToolInsets.bottomEdgeLeftInset - _toolsMargin
         visible:                !QGroundControl.videoManager.fullScreen
@@ -274,8 +279,12 @@ Item {
     MapScale {
         id:                 mapScale
         anchors.margins:    _toolsMargin
-        anchors.left:       toolStrip.right
-        anchors.top:        parent.top
+//        anchors.left:       toolStrip.right
+        anchors.right: parent.right
+//        anchors.top:        parent.top
+        anchors.bottom: parent.bottom
+
+
         mapControl:         _mapControl
         buttonsOnLeft:      false
         visible:            !ScreenTools.isTinyScreen && QGroundControl.corePlugin.options.flyView.showMapScale && mapControl.pipState.state === mapControl.pipState.fullState
@@ -285,6 +294,7 @@ Item {
 
     Component {
         id: preFlightChecklistPopup
+
         FlyViewPreFlightChecklistPopup {
         }
     }
